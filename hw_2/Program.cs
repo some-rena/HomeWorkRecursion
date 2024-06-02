@@ -12,8 +12,22 @@
 
 int Ack(int n, int m)
 {
-    return n;
+
+    if (n == 0)
+    {
+        return m + 1;
+    }
+    else if (m == 0)
+    {
+        return Ack(n - 1, 1);
+    }
+    else
+    {
+        return Ack(n - 1, Ack(n, m - 1));
+    }
 }
+
+
 bool isNumbers(string text)
 {
 
@@ -36,7 +50,7 @@ int m;
 int n;
 string text;
 
-Console.Write("Введите первое положительное число: ");
+Console.Write("Введите положительное число M: ");
 
 text = Console.ReadLine();
 if (isNumbers(text))
@@ -47,7 +61,7 @@ else
 {
     return;
 }
-Console.Write("Введите второе положительное число: ");
+Console.Write("Введите положительное число N: ");
 text = Console.ReadLine();
 if (isNumbers(text))
 {
